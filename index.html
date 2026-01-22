@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teja H | Resume</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            color: white;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.35);
+        }
+
+        header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 38px;
+            font-weight: 600;
+        }
+
+        header h3 {
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        .buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        button {
+            padding: 12px 24px;
+            margin: 8px;
+            border: none;
+            border-radius: 30px;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            color: white;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .section {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.15);
+            margin: 25px auto;
+            padding: 25px;
+            width: 85%;
+            border-radius: 18px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .edu-title {
+            cursor: pointer;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        .edu-title:hover {
+            background-color: rgba(255, 255, 255, 0.35);
+        }
+
+        .edu-details {
+            display: none;
+            margin-left: 15px;
+            margin-top: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: rgba(0, 0, 0, 0.4);
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        function showSection(id) {
+            let sections = document.getElementsByClassName("section");
+            for (let i = 0; i < sections.length; i++) {
+                sections[i].classList.remove("show");
+                sections[i].style.display = "none";
+            }
+
+            let activeSection = document.getElementById(id);
+            activeSection.style.display = "block";
+
+            setTimeout(() => {
+                activeSection.classList.add("show");
+            }, 10);
+        }
+
+        function toggleEdu(id) {
+            let allDetails = document.getElementsByClassName("edu-details");
+            for (let i = 0; i < allDetails.length; i++) {
+                allDetails[i].style.display = "none";
+            }
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <img src="profile.jpg" alt="Profile Photo">
+    <div>
+        <h1>Teja H</h1>
+        <h3>BCA Student | Python | Java | AI & ML</h3>
+    </div>
+</header>
+
+<div class="buttons">
+    <button onclick="showSection('about')">About Me</button>
+    <button onclick="showSection('skills')">Skills</button>
+    <button onclick="showSection('education')">Education</button>
+    <button onclick="showSection('contact')">Contact</button>
+</div>
+
+<div id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+        I am a Bachelor of Computer Applications (BCA) student studying at
+        Indus Valley Degree College, K R Puram, affiliated with Bengaluru North University.
+    </p>
+    <p>
+        I am currently doing an internship at IMTDA Infotech Private Limited and have a keen
+        interest in software development, programming, and emerging technologies.
+    </p>
+</div>
+
+<div id="skills" class="section">
+    <h2>Skills</h2>
+    <ul>
+        <li>Python (Beginner)</li>
+        <li>Java Programming</li>
+        <li>C Programming</li>
+        <li>Artificial Intelligence & Machine Learning (Basics)</li>
+        <li>Git & GitHub</li>
+        <li>Problem Solving</li>
+        <li>Logical Thinking</li>
+        <li>Team Collaboration</li>
+    </ul>
+</div>
+
+<div id="education" class="section">
+    <h2>Education</h2>
+
+    <p class="edu-title" onclick="toggleEdu('bca')">Bachelor of Computer Applications (BCA)</p>
+    <div id="bca" class="edu-details">
+        <p><b>CGPA:</b> 7.0</p>
+        <p>Indus Valley Degree College, K R Puram</p>
+        <p>Bengaluru North University</p>
+    </div>
+
+    <p class="edu-title" onclick="toggleEdu('puc')">PUC</p>
+    <div id="puc" class="edu-details">
+        <p><b>Percentage:</b> 50%</p>
+        <p>Seshadripuram Pre-University College, Yelahanka</p>
+    </div>
+
+    <p class="edu-title" onclick="toggleEdu('sslc')">SSLC</p>
+    <div id="sslc" class="edu-details">
+        <p><b>Percentage:</b> 70%</p>
+        <p>New Priyadarshini School</p>
+    </div>
+</div>
+
+<div id="contact" class="section">
+    <h2>Contact Details</h2>
+    <p><strong>Email:</strong> tejnayak48@gmail.com</p>
+    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/teja-h-2242172b7" target="_blank" style="color:#ffd;">teja-h</a></p>
+    <p><strong>GitHub:</strong> teja-nayak</p>
+</div>
+
+<footer>
+    Currently working as an Intern at IMTDA Infotech Private Limited
+</footer>
+<footer>
+    © 2026 | Teja H
+</footer>
+
+</body>
+</html>
